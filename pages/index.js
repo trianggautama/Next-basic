@@ -1,7 +1,13 @@
+import Head from "next/head";
 import { Fragment } from "react";
 const index = () => {
   return (
     <div>
+      <Head>
+        <title>
+          Course | Home
+        </title>
+      </Head>
       <Fragment>
         <section class="p-1 space-y-2">
           <h1 className="font-bold text-blue-400">Home</h1>

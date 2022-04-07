@@ -7,6 +7,11 @@ const SingleArticle = () => {
 
     return (
         <div>
+            <Head>
+                <title>
+                Course | Article Single
+                </title>
+            </Head>
             <h1>Single Article {id}</h1>
         </div>
     );
