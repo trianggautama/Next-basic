@@ -9,7 +9,7 @@ const index = ({articles}) => {
                     Course | Articles
                 </title>
             </Head>
-            <h1 className="text-2xl truncate text-blue-400">Article Page</h1>
+            <h1 className="text-5xl text-blue-400 mt-1 mb-2">Articles Page</h1>
             {articles.map((article)=>{
                 return (
                     <Article article={article}></Article>
@@ -21,13 +21,13 @@ const index = ({articles}) => {
 
 export default index;
 
-export async function getStaticProps(){
+export async function getServerSideProps(){
     const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-    const data = response.json();
+    const articles = await response.json();
 
     return {
         props : {
-            articles :await data
+            articles
         }
     }
 }

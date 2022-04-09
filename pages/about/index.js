@@ -8,7 +8,7 @@ const index = () => {
                 Course | About
                 </title>
             </Head>
-            <h1>About Page</h1>
+            <h1 className="text-5xl text-blue-400 mt-1 mb-2">About page</h1>
         </div>
     );
 }
