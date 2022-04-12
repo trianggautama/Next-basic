@@ -1,27 +1,31 @@
 import Head from "next/head";
+import { Fragment } from "react";
 import Article from "../../components/article";
 
 const index = ({articles}) => {
     return (
-        <div>
+        <Fragment>
             <Head>
                 <title>
-                    Course | Articles
+                    Course | Articles 
                 </title>
             </Head>
-            <h1 className="text-5xl text-blue-400 mt-1 mb-2">Articles Page</h1>
+            <h1 className="text-5xl text-blue-400 mt-1 mb-2">Articles Page {process.env.NEXT_PUBLIC_VARIABEL}</h1>
             {articles.map((article)=>{
                 return (
-                    <Article article={article}></Article>
+                    <Article key={article.id} article={article}></Article>
                 )
             })}
-        </div>
+        </Fragment>
     );
 }
 
 export default index;
 
 export async function getStaticProps(){
+    const database = process.env.DB_DATABASE;
+
+    console.log(database)
     const response = await fetch('https://jsonplaceholder.typicode.com/posts');
     const articles = await response.json();
 
