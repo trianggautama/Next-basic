@@ -21,13 +21,14 @@ const index = ({articles}) => {
 
 export default index;
 
-export async function getServerSideProps(){
+export async function getStaticProps(){
     const response = await fetch('https://jsonplaceholder.typicode.com/posts');
     const articles = await response.json();
 
     return {
         props : {
             articles
-        }
+        },
+        revalidate : 20
     }
 }
